@@ -1,0 +1,35 @@
+version: 0.1.{build}
+skip_tags: true
+os: Visual Studio 2017
+configuration: Release
+platform: AnyCPU
+clone_depth: 2
+test: off
+branches:
+  only:
+  - master
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: 5WWUHMA6N4J56uA5Or7KTn56RYcGHDnTTIxqxGmWyoEpdhkasFIAfeOrFnCLxFPt
+  sonar_token:
+    secure: QIaJEHgudzCCUvtIOmDZEUVHzOUF9+d4J0ghEEbuJBj+QW3li6lK053A1kftp8CX
+  NuGetApiKey:
+    secure: xkDQ385+smLqdzhESsXBJvnUjK4FZ4Djjrqi9tFR29dwESIvPYOrQAqgri5Nf/fA
+build:
+  verbosity: minimal
+build_script:
+- ps: .\build.ps1
+cache:
+  - tools -> build.cake, tools/packages.config
+artifacts:
+- path: artifacts\**\*.nupkg
+- path: artifacts\**\site.zip
+- path: artifacts\*.xml
+- path: artifacts\*.html
+notifications:
+- provider: Email
+  to:
+  - robin@dapplo.net
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false

@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>A library for accessing NICE Perform API from .NET</Description>
+    <Copyright>Copyright © Dapplo 2017-2018</Copyright>
+    <AssemblyTitle>Dapplo.Nice.Perform</AssemblyTitle>
+    <Authors>Dapplo</Authors>
+    <TargetFrameworks>netstandard1.3;net45;net46</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Dapplo.Nice.Perform</AssemblyName>
+    <PackageId>Dapplo.Nice.Perform</PackageId>
+    <PackageTags>nice;perform;dapplo</PackageTags>
+    <PackageIconUrl>http://www.dapplo.net/favicon.ico</PackageIconUrl>
+    <PackageProjectUrl>http://www.dapplo.net/blocks/Dapplo.Nice.Perform/</PackageProjectUrl>
+    <PackageLicenseUrl>http://www.gnu.org/licenses/lgpl-3.0.en.html</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/dapplo/Dapplo.Nice.Perform</RepositoryUrl>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.1</NetStandardImplicitPackageVersion>
+    <Version>0.1.0.0</Version>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <FileVersion>0.1.0.0</FileVersion>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>True</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup Label="dotnet pack instructions" Condition="'$(BuildingInsideVisualStudio)' != 'true'">
+    <None Include="bin/$(Configuration)/netstandard1.3/$(AssemblyName).pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/netstandard1.3</PackagePath>
+    </None>
+    <None Include="bin/$(Configuration)/net45/$(AssemblyName).pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/net45</PackagePath>
+    </None>
+    <None Include="bin/$(Configuration)/net46/$(AssemblyName).pdb">
+      <Pack>true</Pack>
+      <PackagePath>lib/net46</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapplo.HttpExtensions" Version="0.8.35" />
+    <PackageReference Include="Dapplo.HttpExtensions.JsonSimple" Version="0.8.35" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="Microsoft.NETCore.Portable.Compatibility" Version="1.0.1" />
+  </ItemGroup>
+</Project>

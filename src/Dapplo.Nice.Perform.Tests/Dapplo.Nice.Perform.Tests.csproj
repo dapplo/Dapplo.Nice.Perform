@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Tests for Dapplo.Nice.Perform</Description>
+    <Copyright>Copyright © Dapplo 2018</Copyright>
+    <AssemblyTitle>Dapplo.Nice.Perform.Tests</AssemblyTitle>
+    <Authors>Robin Krom</Authors>
+    <TargetFramework>net46</TargetFramework>
+    <AssemblyName>Dapplo.Nice.Perform.Tests</AssemblyName>
+    <PackageId>Dapplo.Nice.Perform.Tests</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+	<AllowedReferenceRelatedFileExtensions>
+		.pdb;
+		.xml;
+		.config
+	</AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapplo.HttpExtensions.JsonNet" Version="0.8.35" />
+    <PackageReference Include="Dapplo.Log.XUnit" Version="1.2.1" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="JsonTestFiles\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dapplo.Nice.Perform\Dapplo.Nice.Perform.csproj" />
+  </ItemGroup>
+
+</Project>

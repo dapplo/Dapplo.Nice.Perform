@@ -1,0 +1,68 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+		  "src": "../src",
+          "files": [
+            "Dapplo.Nice.Perform*/Dapplo.Nice.Perform.csproj"
+          ],
+          "exclude": [
+			"**/bin/**",
+			"**/obj/**",
+			"**Tests/*.csproj",
+          ]
+        }
+      ],
+      "dest": "api",
+	  "filter": "filterConfig.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.md",
+          "api/**.yml",
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ],
+        "exclude": [
+          "_site/**",
+		  "README.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ],
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+      }
+    ],
+    "dest": "_site",
+	"globalMetadata": {
+		"_appTitle": "Dapplo.Nice.Perform",
+		"_appLogoPath": "images/d.svg",
+		"_appFaviconPath": "images/favicon.ico",
+		"_appFooter": "Copyright © 2018 Dapplo"
+	},
+    "globalMetadataFiles": [],
+	"template": [
+      "statictoc",
+	  "template"
+    ],
+    "fileMetadataFiles": [],
+    "postProcessors": [],
+    "noLangKeyword": false
+  }
+}
